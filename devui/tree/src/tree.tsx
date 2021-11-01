@@ -3,7 +3,7 @@ import useToggle from "./hooks/useToggle";
 import { TreePropType } from "./tree-type";
 import Indent from "./components/Indent";
 import OperateTag from "./components/operateTag";
-import './index.scss';
+import './tree';
 
 const Tree = defineComponent({
   name: 'd-tree',
