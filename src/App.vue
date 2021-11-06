@@ -1,52 +1,23 @@
 <script setup lang="ts">
 import { Tree } from '../devui/tree'
+import { Rate } from '../devui/rate'
 import { ref } from 'vue'
 
-const data = ref([{
-  label: '一级 1', level: 1,
-  children: [{
-    label: '二级 1-1', level: 2,
-    children: [{
-      label: '三级 1-1-1', level: 3,
-    }]
-  }]
-}, {
-  label: '一级 2', level: 1,
-  open: true, // 新增
-  children: [{
-    label: '二级 2-1', level: 2,
-    children: [{
-      label: '三级 2-1-1', level: 3,
-    }]
-  }, {
-    label: '二级 2-2', level: 2,
-    children: [{
-      label: '三级 2-2-1', level: 3,
-    }]
-  }]
-}, {
-  label: '一级 3', level: 1,
-  open: true, // 新增
-  children: [{
-    label: '二级 3-1', level: 2,
-    children: [{
-      label: '三级 3-1-1', level: 3,
-    }]
-  }, {
-    label: '二级 3-2', level: 2,
-    open: true, // 新增
-    children: [{
-      label: '三级 3-2-1', level: 3,
-    }]
-  }]
-}, {
-  label: '一级 4', level: 1,
-}]);
+const score = ref(3);
+const range = ref(5);
+
+const handleInput = (e:any) => {
+  score.value = Number((e.target as any).value);
+}
+
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <Tree :data="data" />
+  <h1>你的评分是 {{ score }}</h1>
+  请输入你的评分：<input type="number" :value="score" @input="handleInput($event)">
+  <hr>
+  <Rate v-model="score" :range="range" />
 </template>
 
 <style>

@@ -1,0 +1,38 @@
+.rate {
+  position: relative;
+  display: inline-block;
+  font-size: 50px;
+  user-select: none;
+
+  .empty,
+  .fill {
+    cursor: pointer;
+  }
+
+  .fill-box,
+  .empty-box {
+    color: #000;
+
+    &.orange {
+      color: rgb(243, 123, 11);
+    }
+
+    &.green {
+      color: rgb(2, 240, 54);
+    }
+
+    &.red {
+      color: rgb(240, 2, 2);
+    }
+  }
+
+  .fill-box {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    transition: .5s;
+  }
+}
